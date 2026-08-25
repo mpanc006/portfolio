@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meera Panchal</title>
+
+    <style>
+    /* Base */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+        
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        font-family: Arial, sans-serif;
+        background-color:#020617;
+        color:#e2e8f0;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Night Sky Background */
+
+    .night-sky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 50%, #020617 100%);
+        z-index: -2;
+        overflow: hidden;
+    }
+
+
+    .stars-layer-1, .stars-layer-2, .stars-layer-3 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .stars-layer-1{
+        box-shadow: 
+            15vw 10vh #fff, 35vw 25vh #fff, 75vw 15vh #fff, 
+            90vw 40vh #fff, 20vw 60vh #fff, 55vw 50vh #fff, 
+            80vw 70vh #fff, 10vw 85vh #fff, 40vw 90vh #fff, 
+            65vw 80vh #fff, 88vw 95vh #fff, 5vw 30vh #fff;
+        animation: twinkle 4s infinite ease-in-out;
+    }
+
+    .stars-layer-2{
+        width: 2px;
+        height: 2px;
+        box-shadow: 
+            25vw 18vh rgba(255,255,255,0.8), 60vw 12vh rgba(255,255,255,0.9), 85vw 30vh #fff, 
+            12vw 50vh #fff, 50vw 75vh rgba(255,255,255,0.8), 70vw 55vh #fff,
+            45vw 22vh #fff, 15vw 72vh #fff, 82vw 88vh #fff;
+        animation: twinkle 2.5s infinite ease-in-out alternate;
+    }
+
+    .stars-layer-3 {
+        width: 1.5px;
+        height: 1.5px;
+        box-shadow: 
+            8vw 45vh rgba(255,255,255,0.7), 48vw 12vh rgba(255,255,255,0.8), 
+            66vw 88vh rgba(255,255,255,0.7), 93vw 15vh rgba(255,255,255,0.6), 
+            31vw 66vh rgba(255,255,255,0.9);
+        animation: twinkle 5s infinite ease-in-out 1s;
+    }
+
+    @keyframes twinkle {
+        0% { opacity: 1; }
+        50% { opacity: 0.25; }
+    }
+
+    /* Header and Navigation */
+
+    header{
+        background:rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color:white;
+        text-align:center;
+        padding: 40px 20px;
+
+        background-image: 
+            radial-gradient(1.5px 1.5px at 25px 35px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 65px 120px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(1px 1px at 110px 50px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 190px 140px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+            radial-gradient(1.5px 1.5px at 280px 30px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(1px 1px at 370px 95px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 460px 65px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(1.5px 1.5px at 590px 130px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+            radial-gradient(1px 1px at 680px 40px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2.5px 2.5px at 760px 150px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(1.5px 1.5px at 890px 55px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 990px 110px, rgba(255,255,255,0.7), rgba(0,0,0,0));
+        background-repeat: repeat-x;
+        background-size: 1000px 200px;
+    }
+
+    h1{
+        font-size:48px;
+        letter-spacing:2px;
+        margin-bottom: 5px;
+        background: linear-gradient(to right, #ffffff, #cbd5e1);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .tagline{
+        font-style: italic;
+        color: #94a3b8;
+        margin-bottom:25px;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+        
+    nav a{
+        color:#94a3b8;
+        text-decoration: none;
+        padding: 10px 18px;
+        font-weight: bold;
+        transition: .3s;
+        border-radius: 8px;
+    }
+
+    nav a:hover{
+        background:rgba(255, 255, 255, 0.1);
+        color:white;
+    }
+
+    /* Profile Sections */
+
+    .main-content{
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    section{
+        background: rgba(30, 41, 59, 0.45);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        margin: 30px 0;
+        padding: 30px;
+        border-radius: 16px;
+        transition: .3s ease;
+    }
+
+    section:hover{
+        transform:translateY(-5px);
+        box-shadow:0 0 10px 15px rgba(124, 169, 243, 0.2);
+        border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    h2{
+        color: #6ea2f6;
+        margin-bottom: 20px;
+        font-size: 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 8px;
+    }
+    
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    li ul {
+        margin-top: 5px;
+        list-style-type: circle;
+    }
+
+    /* Profile Picture */
+
+    .about-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .about-text {
+        flex: 1;
+    }
+        
+    .profile-img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #3b82f6;
+        box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+        flex-shrink: 0;
+        object-position: right center; 
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .profile-img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 35px rgba(110, 162, 246, 0.7);
+    }
+
+    @media (max-width: 650px) {
+        .about-wrapper {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+        .profile-img {
+            margin: 0 auto;
+        }
+    }
+
+    /* Table Styling */
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top: 15px;
+        background: rgba(15, 23, 42, 0.3);
+    }
+
+    table, th, td{
+        border:1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th{
+        background: rgba(59, 130, 246, 0.15);
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    th, td{
+        padding:12px;
+        text-align:left;
+    }
+
+    tr:hover{
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Footer and Social Icons */
+
+    footer{
+        background: rgba(15, 23, 42, 0.8);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: #94a3b8;
+        text-align: center;
+        padding: 30px;
+        margin-top: 60px;
+    }
+
+    .social-icons {
+        margin-bottom: 15px;
+    }
+
+    .social-icons img{
+        width: 32px;;
+        height: 32px;
+        object-fit: contain;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        margin: 0 10px;
+        transition: transform 0.2s;
+    }
+
+    .social-icons img:hover {
+        transform: scale(1.2);
+        filter: brightness(1.2);
+    }
+    </style>
+</head>
+
+<body>
+
+<!-- Night Sky Background -->
+
+<div class="night-sky">
+    <div class="stars-layer-1"></div>
+    <div class="stars-layer-2"></div>
+    <div class="stars-layer-3"></div>
+</div>
+
+<header>
+    <h1>Meera Panchal</h1>
+    <p class="tagline">Fuelled by curiosity and caffeine.</p>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#courses">Courses</a>
+        <a href="#work">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main class="main-content">
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <img class="profile-img" src="profile.jpg" alt="Profile Picture">
+        <p>
+            Hello! My name is Meera Panchal. 
+            I am a Computer Engineering student at UC Riverside. 
+            I enjoy hiking, writing, and traveling the world. 
+            I am passionate about using technology to solve 
+            real-world problems and am always eager to learn 
+            new skills and improve my programming abilities.
+        </p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <strong>B.S. Computer Engineering</strong> -
+                <em>University of California, Riverside</em>
+                (2023 - 2027)
+            </li>
+
+            <li>
+                <strong>High School Diploma</strong> -
+                <em>Ayala High School</em>
+                (2019 - 2023)
+            </li>
+        </ul>
+    </section>
+
+    <section id="courses">
+        <h2>Courses</h2>
+        <table>
+            <tr>
+                <th>Course</th>
+                <th>Instructor</th>
+                <th>Quarter</th>
+            </tr>
+
+            <tr>
+                <td>CS110</td>
+                <td>Professor Zhaowei Tan</td>
+                <td>Summer 2026</td>
+            </tr>
+            
+            <tr>
+                <td>CS111</td>
+                <td>Professor Elena Strzheletska</td>
+                <td>Winter 2026</td>
+            </tr>
+
+            <tr>
+                <td>CS180</td>
+                <td>Professor Qian Zhang</td>
+                <td>Winter 2026</td>
+            </tr>
+
+            <tr>
+                <td>CS061</td>
+                <td>Professor Kris Miller</td>
+                <td>Summer 2026</td>
+            </tr>
+
+            <tr>
+                <td>CS141</td>
+                <td>Professor Yihan Sun</td>
+                <td>Fall 2026</td>
+            </tr>
+        </table>
+
+    </section>
+
+    <section id="work">
+        <h2>Work Experience</h2>
+        <ul>
+            <li>
+                <strong>Software Development Projects</strong> -
+                <em>Personal Projects</em>
+                (2024 - Present)
+
+                <ul>
+                    <li>Built data structures projects in C++.</li>
+                    <li>Developed websites using HTML and CSS.</li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Course Projects</strong> -
+                <em>UC Riverside</em>
+                (2023 - Present)
+
+                <ul>
+                    <li>Implemented trees, hash tables, and graphs.</li>
+                    <li>Practiced software engineering principles.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>AVL Tree Implementation in C++</li>
+            <li>Hash Table Project</li>
+            <li>Portfolio Website</li>
+            <li>Graph Theory Practice Tool</li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>
+                Programming Languages
+                <ul>
+                    <li>C++</li>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul>
+            </li>
+
+            <li>
+                Technologies / Tools
+
+                <ul>
+                    <li>Git</li>
+                    <li>VS Code</li>
+                    <li>Linux</li>
+                    <li>LTspice</li>
+                    <li>GitHub</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: mpanchal1207@gmail.com</p>
+        <p>Phone: (909) 529 - 4540</p>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://github.com/mpanc006">
+                <img src="github.png" alt="GitHub">
+            </a>
+
+            <a href="https://www.linkedin.com/in/meera-panchal-8697b5257">
+                <img src="linkedin.png" alt="LinkedIn">
+            </a>
+        </div>
+        <p>© 2026 Meera Panchal</p>
+    </footer>
+
+</body>
+</html>
